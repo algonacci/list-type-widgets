@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class UsingListView extends StatelessWidget {
   UsingListView({super.key});
   List<Book> allBooks = List.generate(
-    200,
+    2000,
     (index) => Book(
       index + 1,
       'Book Name ${index + 1}',
@@ -16,19 +16,47 @@ class UsingListView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Using List View'),
       ),
-      body: ListView(
-        children: allBooks
-            .map(
-              (Book book) => ListTile(
-                title: Text(book.name),
-                subtitle: Text(book.writer),
-                leading: CircleAvatar(
-                  child: Text(book.id.toString()),
-                ),
+      body: ListView.separated(
+        itemBuilder: (context, index) {
+          var currentBook = allBooks[index];
+          return Card(
+            child: ListTile(
+              onTap: () => print('Clicked: ${currentBook.name}'),
+              title: Text(currentBook.name),
+              subtitle: Text(currentBook.writer),
+              leading: CircleAvatar(
+                child: Text(currentBook.id.toString()),
               ),
-            )
-            .toList(),
+            ),
+          );
+        },
+        itemCount: allBooks.length,
+        separatorBuilder: (context, index) {
+          var newIndex = index + 1;
+          if (newIndex % 5 == 0) {
+            return const Divider(
+              thickness: 3,
+            );
+          }
+          return Container();
+        },
       ),
+    );
+  }
+
+  ListView firstListView() {
+    return ListView(
+      children: allBooks
+          .map(
+            (Book book) => ListTile(
+              title: Text(book.name),
+              subtitle: Text(book.writer),
+              leading: CircleAvatar(
+                child: Text(book.id.toString()),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }
