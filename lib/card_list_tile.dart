@@ -28,8 +28,8 @@ class CardListTile extends StatelessWidget {
               ],
             ),
             ElevatedButton(
-              onPressed: () {},
-              child: Text('data'),
+              onPressed: () => Navigator.pushNamed(context, '/list-view'),
+              child: const Text('data'),
             ),
           ],
         ),

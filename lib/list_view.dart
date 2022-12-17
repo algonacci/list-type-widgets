@@ -1,15 +1,42 @@
 import 'package:flutter/material.dart';
 
 class UsingListView extends StatelessWidget {
-  const UsingListView({super.key});
-
+  UsingListView({super.key});
+  List<Book> allBooks = List.generate(
+    200,
+    (index) => Book(
+      index + 1,
+      'Book Name ${index + 1}',
+      'Writer Name ${index + 1}',
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Using List View'),
+        title: const Text('Using List View'),
       ),
-      body: Container(),
+      body: ListView(
+        children: allBooks
+            .map(
+              (Book book) => ListTile(
+                title: Text(book.name),
+                subtitle: Text(book.writer),
+                leading: CircleAvatar(
+                  child: Text(book.id.toString()),
+                ),
+              ),
+            )
+            .toList(),
+      ),
     );
   }
+}
+
+class Book {
+  final int id;
+  final String name;
+  final String writer;
+
+  Book(this.id, this.name, this.writer);
 }
