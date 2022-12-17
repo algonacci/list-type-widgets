@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:list_type_widgets/card_list_tile.dart';
+import 'package:list_type_widgets/home.dart';
 import 'package:list_type_widgets/list_view.dart';
 
 void main() {
@@ -16,9 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CardListTile(),
+      home: const HomePage(),
       routes: {
-        '/home': (context) => const CardListTile(),
+        '/card-list-tile': (context) => const CardListTile(),
         '/list-view': (context) => UsingListView(),
       },
     );
