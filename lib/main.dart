@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:list_type_widgets/card_list_tile.dart';
+import 'package:list_type_widgets/fetch_dart.dart';
 import 'package:list_type_widgets/home.dart';
 import 'package:list_type_widgets/list_view.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/card-list-tile': (context) => const CardListTile(),
         '/list-view': (context) => UsingListView(),
+        '/fetch-data': (context) => const FetchData()
       },
     );
   }
