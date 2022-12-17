@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:skeletons/skeletons.dart';
 
 class FetchData extends StatelessWidget {
   const FetchData({super.key});
@@ -46,7 +47,8 @@ class FetchData extends StatelessWidget {
               },
             );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            // return const Center(child: CircularProgressIndicator());
+            return SkeletonListView();
           }
         },
       ),

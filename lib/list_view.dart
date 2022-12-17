@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class UsingListView extends StatelessWidget {
   UsingListView({super.key});
@@ -21,7 +22,12 @@ class UsingListView extends StatelessWidget {
           var currentBook = allBooks[index];
           return Card(
             child: ListTile(
-              onTap: () => print('Clicked: ${currentBook.name}'),
+              onTap: () => EasyLoading.showToast(
+                'Clicked',
+                duration: const Duration(seconds: 4),
+                dismissOnTap: true,
+                toastPosition: EasyLoadingToastPosition.bottom,
+              ),
               title: Text(currentBook.name),
               subtitle: Text(currentBook.writer),
               leading: CircleAvatar(
