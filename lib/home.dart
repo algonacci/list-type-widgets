@@ -106,6 +106,25 @@ class HomePage extends StatelessWidget {
               ),
               child: const Text('Grid View'),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () =>
+                  Navigator.pushNamed(context, '/custom-scroll-view'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 100,
+                  vertical: 20,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                    20,
+                  ),
+                ),
+              ),
+              child: const Text('Custom Scroll View'),
+            ),
           ],
         ),
       ),

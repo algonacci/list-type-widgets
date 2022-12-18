@@ -14,49 +14,52 @@ class UsingGridView extends StatelessWidget {
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.purple,
-                width: 4,
-                style: BorderStyle.solid,
-              ),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(
-                  20,
+          return GestureDetector(
+            onTap: () => debugPrint('Clicked $index'),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.purple,
+                  width: 4,
+                  style: BorderStyle.solid,
                 ),
-              ),
-              boxShadow: const [
-                BoxShadow(
-                  blurRadius: 20,
-                  color: Colors.green,
-                  offset: Offset(5, 10),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(
+                    20,
+                  ),
                 ),
-              ],
-              image: const DecorationImage(
-                image: NetworkImage(
-                  'https://avatars.githubusercontent.com/u/86970816?s=400&u=08d2e74ffaaf07b7ee5334304e9b1915480b6ef7&v=4',
-                ),
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
-              ),
-              color: Colors.purple[100 * (index % 9)],
-              gradient: const LinearGradient(
-                colors: [
-                  Colors.pink,
-                  Colors.blue,
+                boxShadow: const [
+                  BoxShadow(
+                    blurRadius: 20,
+                    color: Colors.green,
+                    offset: Offset(5, 10),
+                  ),
                 ],
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
+                image: const DecorationImage(
+                  image: NetworkImage(
+                    'https://avatars.githubusercontent.com/u/86970816?s=400&u=08d2e74ffaaf07b7ee5334304e9b1915480b6ef7&v=4',
+                  ),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
+                ),
+                color: Colors.purple[100 * (index % 9)],
+                gradient: const LinearGradient(
+                  colors: [
+                    Colors.pink,
+                    Colors.blue,
+                  ],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                ),
               ),
-            ),
-            margin: const EdgeInsets.all(25),
-            alignment: Alignment.center,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Using GridView ${index + 1}',
-                textAlign: TextAlign.end,
+              margin: const EdgeInsets.all(25),
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Using GridView ${index + 1}',
+                  textAlign: TextAlign.end,
+                ),
               ),
             ),
           );

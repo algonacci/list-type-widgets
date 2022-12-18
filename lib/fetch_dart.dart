@@ -10,7 +10,7 @@ class FetchData extends StatelessWidget {
 
   Future<List<dynamic>> _fetchDataUsers() async {
     var result = await http.get(Uri.parse(apiUrl));
-    print(jsonDecode(result.body));
+    debugPrint(jsonDecode(result.body));
     return jsonDecode(result.body);
   }
 
