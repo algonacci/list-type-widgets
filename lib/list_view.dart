@@ -4,7 +4,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class UsingListView extends StatelessWidget {
   UsingListView({super.key});
-  List<Book> allBooks = List.generate(
+  final List<Book> allBooks = List.generate(
     2000,
     (index) => Book(
       index + 1,
@@ -76,7 +76,7 @@ class UsingListView extends StatelessWidget {
       context: myContext,
       builder: (context) {
         return AlertDialog(
-          title: Text('Alert Dialog'),
+          title: const Text('Alert Dialog'),
           content: SingleChildScrollView(
             // child: Text('Hello ' * 10),
             child: ListBody(
@@ -92,8 +92,8 @@ class UsingListView extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Yes')),
-                TextButton(onPressed: () {}, child: Text('No')),
+                    child: const Text('Yes')),
+                TextButton(onPressed: () {}, child: const Text('No')),
               ],
             )
           ],
