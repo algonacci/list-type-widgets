@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -28,6 +29,9 @@ class UsingListView extends StatelessWidget {
                 dismissOnTap: true,
                 toastPosition: EasyLoadingToastPosition.bottom,
               ),
+              onLongPress: () {
+                usingAlertDialog(context);
+              },
               title: Text(currentBook.name),
               subtitle: Text(currentBook.writer),
               leading: CircleAvatar(
@@ -63,6 +67,38 @@ class UsingListView extends StatelessWidget {
             ),
           )
           .toList(),
+    );
+  }
+
+  void usingAlertDialog(BuildContext myContext) {
+    showCupertinoDialog(
+      barrierDismissible: false,
+      context: myContext,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Alert Dialog'),
+          content: SingleChildScrollView(
+            // child: Text('Hello ' * 10),
+            child: ListBody(
+              children: [
+                Text('Hello ' * 100),
+              ],
+            ),
+          ),
+          actions: [
+            ButtonBar(
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text('Yes')),
+                TextButton(onPressed: () {}, child: Text('No')),
+              ],
+            )
+          ],
+        );
+      },
     );
   }
 }

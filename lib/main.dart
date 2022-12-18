@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:list_type_widgets/card_list_tile.dart';
 import 'package:list_type_widgets/fetch_dart.dart';
 import 'package:list_type_widgets/home.dart';
+import 'package:list_type_widgets/layout_problem.dart';
 import 'package:list_type_widgets/list_view.dart';
 
 void main() {
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/card-list-tile': (context) => const CardListTile(),
         '/list-view': (context) => UsingListView(),
-        '/fetch-data': (context) => const FetchData()
+        '/fetch-data': (context) => const FetchData(),
+        '/layout-problem': (context) => const LayoutProblem(),
       },
       builder: EasyLoading.init(),
     );

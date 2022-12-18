@@ -70,6 +70,24 @@ class HomePage extends StatelessWidget {
               ),
               child: const Text('Fetch Data'),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, '/layout-problem'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 100,
+                  vertical: 20,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                    20,
+                  ),
+                ),
+              ),
+              child: const Text('Layout Problem'),
+            ),
           ],
         ),
       ),
